@@ -4,6 +4,14 @@ Class {
 	#category : #'CodeCane-App'
 }
 
+{ #category : #open }
+CodeCaneApp class >> openInNewWindow [
+	| inst |
+	inst := self new.
+	
+	inst show.
+]
+
 { #category : #accessing }
 CodeCaneApp >> homeScene [
 	| aContainer |
@@ -13,7 +21,9 @@ CodeCaneApp >> homeScene [
 	
 	aContainer addChild: (BrLabel new
 		aptitude: (BrGlamorousLabelAptitude new fontSize: 30);
-		text: 'Helldo world!').
+		text: 'Welcome to Code Cane').
+		
+	^ aContainer
 ]
 
 { #category : #accessing }
@@ -21,5 +31,5 @@ CodeCaneApp >> initialize [
 	super initialize.
 	self extent: 800@600.
 	self title: 'Code Cane'.
-	
+	self addChild: self homeScene.
 ]
